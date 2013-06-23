@@ -2,7 +2,7 @@
 # Cookbook Name:: devsetup
 # Recipe:: default
 #
-# Copyright 2013, Opscode, Inc.
+# Copyright 2013, Adam Edwards
 #
 # All rights reserved - Do Not Redistribute
 #
