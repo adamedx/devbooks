@@ -17,8 +17,8 @@ Test systems
 
 The following systems are available for testing:
 
-138.91.82.179 -- server
-138.91.83.27  -- client
+    138.91.82.179 -- server
+    138.91.83.27  -- client
 
 How to collect data
 -------------------
