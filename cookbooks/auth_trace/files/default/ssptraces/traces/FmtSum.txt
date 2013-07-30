@@ -1,0 +1,12 @@
+Files Processed:
+	D:\tmp\traces\kdc.etl
+Total Buffers Processed 1
+Total Events  Processed 1
+Total Events  Lost      0
+Total Format  Errors    0
+Total Formats Unknown   1
+Elapsed Time            22 sec
++-----------------------------------------------------------------------------------+
+|EventCount    EventName            EventType   TMF                                 |
++-----------------------------------------------------------------------------------+
++-----------------------------------------------------------------------------------+

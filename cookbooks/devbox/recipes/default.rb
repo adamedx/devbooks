@@ -8,8 +8,11 @@
 #
 
 include_recipe 'git'
+include_recipe 'chocolatey'
+include_recipe 'winrm_dev'
 
 if node[:platform] == "windows"
+  include_recipe 'devbox::powershell_dev'
   chocolatey "emacs"
 else
   package "emacs" do
