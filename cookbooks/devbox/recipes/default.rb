@@ -8,10 +8,10 @@
 #
 
 include_recipe 'git'
-include_recipe 'chocolatey'
-include_recipe 'winrm_dev'
 
 if node[:platform] == "windows"
+  include_recipe 'winrm_dev'  
+  include_recipe 'chocolatey'  
   include_recipe 'devbox::powershell_dev'
   chocolatey "emacs"
 else
@@ -19,7 +19,7 @@ else
     action :install
   end
 
-  package "build-essential" do
-    action :install
-  end
+  include_recipe 'build-essential'
+  include_recipe 'ruby_build'
+
 end
