@@ -28,14 +28,8 @@ action :set do
   current_computer_name = computer_information.get_computer_name
   current_domain_name = computer_information.get_computer_dns_domain
 
-  puts "computer: " + ( ( current_computer_name.nil? ) ? "nil" : current_computer_name )
-  puts "domain: " + ( ( current_domain_name.nil? ) ? "nil" : current_domain_name )
-
   computer_name_changed = ( ComputerInformation.compare_dns_names(current_computer_name, new_resource.name) != 0 )
   domain_name_changed = ( ComputerInformation.compare_dns_names(current_domain_name, new_resource.domain) != 0 )
-
-  puts "New domain: #{new_resource.domain}: " + domain_name_changed.to_s
-  puts "New computer: #{new_resource.name}: " + computer_name_changed.to_s
 
   if ( computer_name_changed || domain_name_changed )
     converge_by("Set #{ new_resource }") do
@@ -46,12 +40,10 @@ action :set do
 end
 
 def update_computer_name(computer_information)
-  puts "Updating to computer name #{new_resource.name}"
   computer_information.set_computer_name( new_resource.name, new_resource.domain_user, new_resource.domain_password )
 end
 
 def update_domain(computer_information)
-  puts "Updating domain to #{new_resource.domain}"
   computer_information.set_computer_dns_domain(
     new_resource.domain,
     new_resource.domain_user,

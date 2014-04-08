@@ -2,42 +2,25 @@ Domain Cookbook
 ======================
 Enables management of membership to an Active Directory domain through an LWRP.
 
-e.g.Requirements
+Requirements
 ------------
 This cookbook currently applies only to the Windows platform.
-
-Attributes
-----------
-#### Domain::default
-<table>
-  <tr>
-    <th>Key</th>
-    <th>Type</th>
-    <th>Description</th>
-    <th>Default</th>
-  </tr>
-  <tr>
-    <td><tt>['domain_member']['domain']</tt></td>
-    <td>String</td>
-    <td>DNS name of the Active Directory domain</td>
-    <td><tt>mydomain</tt></td>
-  </tr>
-</table>
 
 Usage
 -----
 #### domain::member
 
-Include `domain` in your node's `run_list` and provide a value for the
-`'domain'` attribute.
+Include `domain_member` resource in your recipe and provide a value for the
+`'domain'` attribute, along with credentials valid in the domain for joining a
+system via the domain_user and domain_password attributes.
 
-```json
-{
-  "domain":"my_domain",
-  "run_list": [
-    "recipe[domain::member]"
-  ]
-}
+```
+domain_member do
+  domain 'mydomain.myorg.org'
+  domain_user 'myuser'
+  domain_password 'mypass'
+  organizational_unit 'OU=mycomputers,DC=mydomain,DC=myorg,DC=org' # optional
+end
 ```
 
 Contributing
